@@ -1,293 +1,452 @@
-*{
-    margin: 0px;
-    padding: 0px;
+
+/* --- Universal Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Elements ko screen se bahar stretch hone se rokta hai */
     color: black;
+    font-family: Arial, sans-serif;
 }
-navigation{
-  display: flex;
-  align-items: center;
-  justify-content: space-between; 
-  background-color: beige;
-  padding-left:20px;
-  padding-right: 20px;
+
+body {
+  
+    background-color: #ffffff;
+}
+
+/* --- Navigation Bar --- */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    background-color: beige;
+    padding: 20px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 } 
-#navbar{
-    display:flex;
-    gap: 50px;
-    /* justify-content: space-evenly;    */
+
+#navbar {
+    display: flex;
+    gap: 30px;
+    list-style: none;
 }
-a{
+
+#navbar a {
     text-decoration: none;
-    margin: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: color 0.3s;
 }
-li{
-    display: inline-block;
-    font-size: 1.5rem;
+
+#navbar a:hover {
+    color: #ff7b22;
 }
- h1{
-    font-size: 3rem;
- }
- .hero{
+
+/* --- Hero Section --- */
+.hero {
     position: relative;
     height: 80vh;
+    min-height: 450px;
     background-image: url(background.webp);
-    background-size:cover;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
     align-items: center;
-    padding: 0 80px;
- }
- .overlay{
+    padding: 0 10%;
+}
+
+.overlay {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.4);
-    
- }
+    z-index: 1;
+}
 
- .hero-content{
+.hero-content {
     position: relative;
     z-index: 2;
     max-width: 600px;
- }
- .hero-content h1{
-    font-size: 70px;
-    line-height: 1.1;
+    width: 100%;
+}
+
+.hero-content h1 {
+    font-size: clamp(2rem, 5vw, 65px); /* Dynamic Scaling Font */
+    line-height: 1.2;
     font-weight: 800;
     color: white;
- }
- .hero-content p{
+}
+
+.hero-content p {
     margin: 20px 0;
     font-size: 18px;
     line-height: 1.8;
     color: white;
- }
- .hero-content span{
+}
+
+.hero-content span {
     color: #ff7b22;
- }
- .btns{
+}
+
+.btns {
     display: flex;
     gap: 15px;
- }
- .btn{
+    flex-wrap: wrap;
+}
+
+.btn {
     padding: 14px 28px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: 600;
- }
- .orange{
-    background: #ff7b22;
-    color: white;
- }
- .transparent{
-     border: 2px solid white;
-    color: white;
- }
- .stats{
-    display: flex; 
-    justify-content: center;
-     gap: 20px;
-    padding: 30px;
-    margin-top: -40px;
- }
- .card{
-    background: white;
-    padding: 20px;
-    width: 220px;
+    display: inline-block;
     text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    z-index: 1;
- }
- .card h2{
-    color: #ff7b22;
- }
-.card p{
-    margin-top: 10px;
 }
 
-/* about section */
-.about{
+.orange {
+    background: #ff7b22;
+    color: white;
+}
+
+.transparent {
+    border: 2px solid white;
+    color: white;
+}
+
+/* --- Stats Cards --- */
+.stats {
+    display: flex; 
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 5%;
+    margin-top: -40px;
+    position: relative;
+    z-index: 3;
+    flex-wrap: wrap; /* Taki cards mobile me vertically set ho jayein */
+}
+
+.card {
+    background: white;
+    padding: 25px 20px;
+    width: 230px;
+    flex-grow: 1;
+    max-width: 280px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    color: #ff7b22;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+/* --- About Section --- */
+.about {
    display: flex;
-   /* align-items: center; */
+   align-items: center;
    justify-content: center;
    gap: 60px;
    padding: 80px 10%;
+   flex-wrap: wrap;
 }
-.about-img{
-position: relative;
+
+.about-img {
+    position: relative;
+    max-width: 100%;
 }
-.about-img img{
-   width: 450px;
-   border-radius: 12px ;
+
+.about-img img {
+   width: 100%;
+   max-width: 450px;
+   height: auto;
+   border-radius: 12px;
+   display: block;
 }
-.mini-card{
+
+.mini-card {
    position: absolute;
-   bottom: -20px;
-   right: -20px;
+   bottom: -15px;
+   right: -15px;
    background: white;
-   padding: 20px;
+   padding: 15px 20px;
    border-radius: 10px;
-   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
-.about-content{
-max-width: 550px;
+
+.about-content {
+    max-width: 550px;
+    width: 100%;
 }
-.about-content h4{
+
+.about-content h4 {
    color: #ff7b22;
    margin-bottom: 10px;
+   font-weight: bold;
 }
-.about-content h2{
-margin-bottom: 20px;
+
+.about-content h2 {
+    margin-bottom: 20px;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
 }
-.about-content p{
+
+.about-content p {
    line-height: 1.7;
+   margin-bottom: 20px;
 }
-.journey{
-   margin-top: 30px;
-}
-.journey-item{
+
+.journey-item {
    border-left: 3px solid #ff7b22;
    padding-left: 20px;
    margin-bottom: 20px;
 }
-.journey-item span{
+
+.journey-item span {
    font-weight: bold;
    color: #ff7b22;
 }
-/* .icon i{
-   font-size: 40px;
-   color:#ff7b22
-} */
-.initiatives{
-padding: 80px 10%;
-text-align: center;
- }
- .initiatives h4{
-   font-size: xx-large;
+
+/* --- Initiatives Section (Smart Grid) --- */
+.initiatives {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.initiatives h4 {
    color: #ff7b22;
    margin-bottom: 10px;
- }
- .initiatives h2{
+}
+
+.initiatives h2 {
    margin-bottom: 40px;
- }
-.initiatives-container{
+   font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.initiatives-container {
    display: grid;
-   grid-template-columns: repeat(3,1fr);
+   /* Dynamic adjustment automatic space ke hisab se columns banata hai */
+   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
    gap: 25px;
 }
-.initiatives-card{
+
+.initiatives-card {
    padding: 30px;
    border-radius: 12px;
    background-color: white;
-   box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-   transition: 0.3s;
+   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+   transition: transform 0.3s;
 }
-.initiatives-card:hover{
+
+.initiatives-card:hover {
    transform: translateY(-8px);
 }
-.icon{
+
+.icon {
    font-size: 40px;
    margin-bottom: 15px;
 }
-.initiatives-card p{
-   margin-top: 10px;
-   line-height: 1.6;
-}
-.gallery{
-   padding: 100px 10%;
+
+/* --- Gallery Section --- */
+.gallery {
+   padding: 80px 10%;
    text-align: center;
 }
-.gallery-container{
-   display: grid;
-   grid-template-columns: repeat(3,1fr);
-   gap: 20px;
-}
-.gallery-item{
-   overflow: hidden;
-   border-radius:12px;
-   box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-}
-.gallery-item img{
-   width: 100%;
-   height: 200px;
-   object-fit: cover;
-}
-.gallery-item:hover img{
-   transform: scale(1.08);
-}
-.gallery h4{
+
+.gallery h4 {
    color: #ff7b22;
-}
-.gallery h2{
-   margin-bottom: 40px;
-}
-.gallery h4{
-   font-size: xx-large;
-}
-.involved{
-   text-align:center;
-   padding: 100px 10%;
-   background:#f8f9fa;
-}
-.involved h4{
-   color:#ff7b22;
    margin-bottom: 10px;
 }
-.involved h2{
-   margin-bottom: 20px;
+
+.gallery h2 {
+   margin-bottom: 40px;
+   font-size: clamp(1.8rem, 3vw, 2.5rem);
 }
-.involved p{
+
+.gallery-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   gap: 20px;
+}
+
+.gallery-item {
+   overflow: hidden;
+   border-radius: 12px;
+   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.gallery-item img {
+   width: 100%;
+   height: 220px;
+   object-fit: cover;
+   display: block;
+   transition: transform 0.3s;
+}
+
+.gallery-item:hover img {
+   transform: scale(1.08);
+}
+
+/* --- Get Involved --- */
+.involved {
+   text-align: center;
+   padding: 80px 10%;
+   background: #f8f9fa;
+}
+
+.involved h4 {
+   color: #ff7b22;
+   margin-bottom: 10px;
+}
+
+.involved p {
    max-width: 600px;
-   margin: auto;
+   margin: 20px auto;
    line-height: 1.7;
 }
-.involved-btns{
-   margin-top: 30px;
+
+.involved-btns {
+   display: flex;
+   gap: 15px;
+   justify-content: center;
+   flex-wrap: wrap;
 }
-.btn1, .btn2{
+
+.btn1, .btn2 {
    padding: 14px 28px;
    border-radius: 6px;
-   margin: 10px;
    display: inline-block;
+   text-decoration: none;
+   font-weight: 600;
 }
-.btn1{
+
+.btn1 {
    background: #ff7b22;
    color: white;
 }
-.btn2{
+
+.btn2 {
    border: 2px solid #ff7b22;
    color: #ff7b22;
 }
-.contact{
-   padding: 100px 10%;
+
+/* --- Contact --- */
+.contact {
+   padding: 80px 10%;
    text-align: center;
 }
-.contact-container{
+
+.contact-container {
    display: flex;
    gap: 40px;
    justify-content: center;
+   align-items: center;
    margin-top: 40px;
+   flex-wrap: wrap;
 }
-form{
+
+.contact-info {
+    text-align: left;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+form {
    display: flex;
    flex-direction: column;
-   width: 400px;
+   width: 100%;
+   max-width: 400px;
 }
-input, textarea{
-padding: 15px;
-margin-bottom: 15px;
-border: 1px solid #ddd;
-border-radius: 6px;
+
+input, textarea {
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    width: 100%;
 }
-button{
+
+textarea {
+    height: 110px;
+    resize: vertical;
+}
+
+button {
    padding: 15px;
    border: none;
    background-color: #ff7b22;
    color: white;
    border-radius: 6px;
    cursor: pointer;
+   font-weight: 600;
+   font-size: 1rem;
 }
+
+/* ==========================================
+   Responsive Breakpoints (Mobile & Tablets)
+   ========================================== */
+
+@media (max-width: 992px) {
+    .stats {
+        margin-top: 20px; /* Tablet sizes par overlap issue hatane ke liye */
+    }
+    .about {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 15px;
+    }
+
+    /* 1. Mobile par link elements completely none honge aapki demand par */
+    #navbar {
+        display: none ;
+    }
+
+    nav img {
+        height: 50px;
+    }
+
+    .hero {
+        text-align: center;
+        padding: 0 5%;
+        justify-content: center;
+    }
+
+    .hero-content h1 {
+        font-size: 38px;
+    }
+
+    .btns {
+        justify-content: center;
+    }
+
+    .about {
+        padding: 50px 5%;
+    }
+
+    .mini-card {
+        right: 5px;
+        bottom: -15px;
+        padding: 10px 15px;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .contact-info {
+        text-align: center;
+    }
+}
+
